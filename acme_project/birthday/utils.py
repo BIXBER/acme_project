@@ -7,7 +7,6 @@ def calc_birthday_countdown(birthday):
 
     Если день рождения сегодня, то возвращает 0.
     """
-
     today = date.today()
     this_year_birthday = get_birthday_for_year(birthday, today.year)
     if this_year_birthday < today:
