@@ -14,6 +14,14 @@
           {{ birthday.first_name }} {{ birthday.last_name }} - {{ birthday.birthday }}<br>
           <a href="{% url 'birthday:detail' birthday.id %}">Сколько до дня рождения?</a>
         </div>
+        <div>
+          {% with all_tags=birthday.tags.all %}
+            {% if all_tags %}
+              {{ all_tags|join:", "|lower|capfirst }}
+              пользователя {{ birthday.author.username }}
+            {% endif %}
+          {% endwith %}  
+        </div>
         {% if birthday.author == user %}
           <div>
             <a href="{% url 'birthday:edit' birthday.id %}">Изменить запись</a>
